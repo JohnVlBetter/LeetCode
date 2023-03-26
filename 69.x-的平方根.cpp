@@ -14,6 +14,7 @@ public:
         }
         if(i!=0)return i-1;
         return 0;*/
+        
         //牛顿迭代
         if (x == 0) {
             return 0;
