@@ -18,19 +18,11 @@
  */
 class Solution {
 public:
-    int max;
-    int diameterOfBinaryTree(TreeNode* root) {
-        max = 1;
-        depth(root);
-        return max-1;
-    }
-
-    int depth(TreeNode* root){
+    int maxDepth(TreeNode* root) {
         if(root == nullptr) return 0;
-        int left = depth(root->left);
-        int right = depth(root->right);
-        max = std::max(max, left+right+1);
-        return std::max(left, right)+1;
+        int l = maxDepth(root->left) + 1;
+        int r = maxDepth(root->right) + 1;
+        return max(l,r);
     }
 };
 // @lc code=end
