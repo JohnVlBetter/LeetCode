@@ -24,7 +24,7 @@ public:
                 if(cur == 0 ){
                     result.push_back({nums[i],nums[left],nums[right]});
                     while (left < right && nums[left] == nums[left + 1]) {
-					left++;
+					    left++;
 				    }
 				    while (left < right && nums[right] == nums[right - 1]) {
 				    	right--;
