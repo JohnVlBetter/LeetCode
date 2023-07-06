@@ -16,13 +16,12 @@ public:
             ++al;
         }
         int num = 0;
-        for(int i = al - 1;i>=0;--i){
+        for(int i = al - 1; i>=0; --i){
             int sum = a[i] - '0' + b[i] - '0' + num;
-            a[i] = (sum) % 2+'0';
+            a[i] = (sum) % 2 + '0';
 			num = sum / 2;
         }
-        if (num > 0)//有溢出
-			a = '1' + a;
+        if (num > 0) a = '1' + a;
 		return a;
     }
 };
