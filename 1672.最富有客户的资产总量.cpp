@@ -8,7 +8,9 @@
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
-
+        int max = -1;
+        for(const auto& vec:accounts) max = std::max(max, accumulate(vec.begin() , vec.end() , 0));
+        return max;
     }
 };
 // @lc code=end
