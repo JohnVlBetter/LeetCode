@@ -7,15 +7,17 @@
 // @lc code=start
 class Solution {
 public:
-
+    unordered_map<int,string> map;
+    int idx = 0;
     // Encodes a URL to a shortened URL.
     string encode(string longUrl) {
-        
+        map[++idx] = longUrl;
+        return std::to_string(idx);
     }
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        
+        return map[std::stoi(shortUrl)];
     }
 };
 
