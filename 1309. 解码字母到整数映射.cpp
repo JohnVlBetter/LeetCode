@@ -1,26 +1,29 @@
 /*
- * @lc app=leetcode.cn id=1828 lang=cpp
+ * @lc app=leetcode.cn id=1828 lang=rust
  *
  * [1309] 解码字母到整数映射
  */
 
 // @lc code=start
-class Solution {
-public:
-    string freqAlphabets(string s) {
-        int n = s.size();
-        string res;
-        for(int i = 0; i < n;){
-            if(i < n - 2 && s[i+2] == '#'){
-                res += char((s[i] - '0') * 10 + (s[i + 1] - '1') + 'a');
+impl Solution {
+    pub fn freq_alphabets(s: String) -> String {
+        let mut res = String::new();
+        let mut i = 0;
+        while i < s.len(){
+            if i + 2 < s.len() && &s[i+2..i+3] == "#"{
+                let r = &s[i..i+2].parse::<u8>().unwrap();
+                let c = (r - 10 + 'j' as u8 ) as char;
+                res.push(c);
                 i += 3;
             }else{
-                res += char(s[i] - '1' + 'a');
-                ++i;
+                let r = &s[i..i+1].parse::<u8>().unwrap();
+                let c = (r - 1 + 'a' as u8 ) as char;
+                res.push(c);
+                i += 1;
             }
         }
-        return res;
+        res
     }
-};
+}
 // @lc code=end
 
